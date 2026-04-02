@@ -11371,7 +11371,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
         }, [n.length]), U(On, {
             children: [e && x("img", {
                 className: "Crosshair",
-                src: "https://raw.githubusercontent.com/MadAceDontLoveTaz/tesrbhvhgfg/refs/heads/main/images/angle-crosshair-thumbnail.png",
+                src: "https://files.catbox.moe/yknxqa.png",
                 draggable: "false"
             }), x(bt, {
                 mounted: e,
@@ -11408,7 +11408,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
     });
 if (di()) {
     const e = document.getElementById("root");
-    e.style.backgroundImage = 'url("https://files.catbox.moe/p4k1jh.png")', e.style.backgroundSize = "cover", e.style.backgroundRepeat = "no-repeat", e.style.backgroundPosition = "center"
+    e.style.backgroundImage = 'url("https://files.catbox.moe/813mz5.jpg")', e.style.backgroundSize = "cover", e.style.backgroundRepeat = "no-repeat", e.style.backgroundPosition = "center"
 }
 const Xg = document.getElementById("root");
 ul.createRoot(Xg).render(x(L.StrictMode, {
