@@ -11241,7 +11241,7 @@ const Bg = () => {
                 children: [U("div", {
                     className: "Header",
                     children: [x("img", {
-                        src: "https://r2.fivemanage.com/j0YlVJ9wWJTFeImwfmRK2/AdobeExpress-file.png",
+                        src: "https://files.catbox.moe/813mz5.jpg",
                         draggable: "false"
                     }), x("div", {
                         className: "Line"
