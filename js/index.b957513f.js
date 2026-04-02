@@ -11371,7 +11371,7 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
         }, [n.length]), U(On, {
             children: [e && x("img", {
                 className: "Crosshair",
-                src: "https://files.catbox.moe/yknxqa.png",
+                src: "https://files.catbox.moe/i6nyqq.png",
                 draggable: "false"
             }), x(bt, {
                 mounted: e,
