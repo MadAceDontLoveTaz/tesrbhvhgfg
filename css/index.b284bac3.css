@@ -882,16 +882,18 @@
 .FCWrapper {
     position: absolute;
     display: flex;
-    right: 2vw;                
+    left: 50%;
     bottom: 4vw;
     max-height: 13.0208vw;
+    transform: translate(-50%);
     justify-content: flex-start;
-    align-items: flex-end;       
+    align-items: center;
     flex-direction: column;
     font-family: Inter;
     gap: .2083vw;
     overflow: hidden
 }
+
 .FCWrapper .Option {
     position: relative;
     display: flex;
