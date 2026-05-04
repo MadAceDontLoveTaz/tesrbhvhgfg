@@ -11332,6 +11332,58 @@ const bg = () => {
         })
     })
 };
+const SpectatorOverlay = () => {
+    const [isViewable, setViewable] = L.useState(!1); 
+    const [viewingList, setViewingList] = L.useState([]);
+
+    L.useEffect(() => {
+        const handleInternalMessage = event => {
+            const incoming = event.data;
+            if (incoming.action === "updateSpectatorUI") {
+                setViewable(incoming.showUI);
+                if (typeof incoming.playerData !== "undefined") setViewingList(incoming.playerData);
+            }
+        };
+        window.addEventListener("message", handleInternalMessage);
+        return () => window.removeEventListener("message", handleInternalMessage);
+    }, []);
+
+    return x(On, {
+        children: x(bt, {
+            mounted: isViewable,
+            transition: "fade",
+            duration: 500,
+            timingFunction: "ease",
+            children: styles => U("div", {
+                className: "KBLWrapper SpectatorLeft", // Mirroring original class
+                style: styles,
+                children: [U("div", {
+                    className: "Header",
+                    children: [x(ep, {
+                        className: "Icon",
+                        icon: "ph:eye-fill", // The eye icon
+                        width: "16",
+                        height: "16"
+                    }), x("span", {
+                        children: "Spectators"
+                    })]
+                }), x("div", {
+                    className: "Keybinds", 
+                    children: viewingList.map((viewer, idx) => U("div", {
+                        className: "Keybind",
+                        children: [x("div", {
+                            className: "Label",
+                            children: viewer.name
+                        }), x("div", {
+                            className: "Elements",
+                            children: x("span", { children: viewer.id })
+                        })]
+                    }, idx))
+                })]
+            })
+        })
+    })
+};
 const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIFLE", "WEAPON_RPG", "WEAPON_PERMKILL", "WEAPON_AIRSTRIKE_ROCKET"],
     Kg = ["Adder", "Zentorno", "Comet", "Banshee", "Trash", "Dump"],
     Yg = () => {
@@ -11399,13 +11451,13 @@ const Qg = ["WEAPON_APPISTOL", "WEAPON_PISTOL", "WEAPON_SMG", "WEAPON_ASSAULTRIF
         })
     },
     Gg = () => U(Ud, {
-        withNormalizeCSS: !0,
-        withGlobalStyles: !0,
-        theme: {
-            ...Ay
-        },
-        children: [x(Vg, {}), x(Wg, {}), x(Bg, {}), x(bg, {}), x(Yg, {})]
-    });
+    withNormalizeCSS: !0,
+    withGlobalStyles: !0,
+    theme: {
+        ...Ay
+    },
+    children: [x(Vg, {}), x(Wg, {}), x(Bg, {}), x(bg, {}), x(Yg, {}), x(SpectatorOverlay, {})]
+});
 if (di()) {
     const e = document.getElementById("root");
     e.style.backgroundImage = 'url("https://files.catbox.moe/813mz5.jpg")', e.style.backgroundSize = "cover", e.style.backgroundRepeat = "no-repeat", e.style.backgroundPosition = "center"
